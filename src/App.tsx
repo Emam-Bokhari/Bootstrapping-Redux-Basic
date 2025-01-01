@@ -6,12 +6,12 @@ const App = () => {
   const dispatch = useAppDispatch();
   const counter = useAppSelector((state) => state.counter);
 
-  function handleIncrement() {
-    dispatch(increment());
+  function handleIncrement(amount: number) {
+    dispatch(increment(amount));
   }
 
-  function handleDecrement() {
-    dispatch(decrement());
+  function handleDecrement(amount: number) {
+    dispatch(decrement(amount));
   }
 
   console.log(counter);
@@ -21,13 +21,13 @@ const App = () => {
       <div>
         <p className="text-lg font-medium">Count: {counter.count}</p>
         <button
-          onClick={handleIncrement}
+          onClick={() => handleIncrement(3)}
           className="bg-violet-500 hover:bg-violet-600 text-white px-4 py-2 rounded-md transition-all"
         >
           Increment
         </button>
         <button
-          onClick={handleDecrement}
+          onClick={() => handleDecrement(1)}
           className="bg-red-500  hover:bg-red-600 px-4 py-2 rounded-md text-white ml-2"
         >
           Decrement
