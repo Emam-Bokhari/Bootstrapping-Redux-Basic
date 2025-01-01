@@ -1,10 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
 import { Fragment } from "react/jsx-runtime";
 import { decrement, increment } from "./redux/features/counter/counterSlice";
+import { useAppDispatch, useAppSelector } from "./redux/hooks";
 
 const App = () => {
-  const dispatch = useDispatch();
-  const counter = useSelector((state) => state.counter);
+  const dispatch = useAppDispatch();
+  const counter = useAppSelector((state) => state.counter);
 
   function handleIncrement() {
     dispatch(increment());
