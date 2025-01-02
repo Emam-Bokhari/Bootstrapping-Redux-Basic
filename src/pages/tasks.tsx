@@ -13,7 +13,11 @@ const Tasks = () => {
       <div className="max-w-screen-xl mx-auto my-10">
         <p>Task</p>
         {/* task card */}
-        <TaskCard />
+        <div className="space-y-3 mt-5">
+          {tasks.map((task) => (
+            <TaskCard key={task.id} task={task} />
+          ))}
+        </div>
       </div>
     </Fragment>
   );

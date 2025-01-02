@@ -1,16 +1,28 @@
 import { Fragment } from "react/jsx-runtime";
 import { Trash2 } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
+import { ITask } from "@/types";
+import { cn } from "@/lib/utils";
 
-const TaskCard = () => {
+interface IProps {
+  task: ITask;
+}
+
+const TaskCard = ({ task }: IProps) => {
   return (
     <Fragment>
-      <div className="mt-1 border-[1px] border-gray-700 rounded-sm px-4 py-2">
+      <div className=" border-[1px] border-gray-700 rounded-sm px-4 py-2">
         <div className="flex items-center">
           {/* task title */}
           <div className="flex items-center gap-2  flex-1">
-            <div className="w-3 h-3 rounded-full bg-green-500"></div>
-            <p className="text-sm text-[#2a2c2a]">Task Title</p>
+            <div
+              className={cn("w-3 h-3 rounded-full", {
+                "bg-green-500": task.priority === "Low",
+                "bg-yellow-500": task.priority === "Medium",
+                "bg-red-500": task.priority === "High",
+              })}
+            ></div>
+            <p className="text-sm text-[#2a2c2a]">{task.title}</p>
           </div>
           {/* action */}
           <div className="flex items-center gap-2 ">
@@ -22,7 +34,7 @@ const TaskCard = () => {
         </div>
         {/* description */}
         <div className="mt-5">
-          <p>Description</p>
+          <p>{task.description}</p>
         </div>
       </div>
     </Fragment>
