@@ -1,12 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    id: "T-001",
-    title: "TypeScript Mastery",
-    description: "Mastery typescript",
-    priority: "High",
-    isCompleted: false,
-    dueDate: "2025-02"
+    task: [
+        {
+            id: "T-001",
+            title: "TypeScript Mastery",
+            description: "Mastery typescript",
+            priority: "High",
+            isCompleted: false,
+            dueDate: "2025-02"
+        }
+    ]
 }
 
 const taskSlice = createSlice({
