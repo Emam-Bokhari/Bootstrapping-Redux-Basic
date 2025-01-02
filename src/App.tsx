@@ -1,6 +1,7 @@
 import { Fragment } from "react/jsx-runtime";
 import { decrement, increment } from "./redux/features/counter/counterSlice";
 import { useAppDispatch, useAppSelector } from "./redux/hooks";
+import { Button } from "./components/ui/button";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -32,6 +33,7 @@ const App = () => {
         >
           Decrement
         </button>
+        <Button>Payment</Button>
       </div>
     </Fragment>
   );
