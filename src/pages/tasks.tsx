@@ -1,4 +1,5 @@
-import TaskCard from "@/components/module/tasks/taskCard";
+import { AddTask } from "@/components/module/tasks/AddTask";
+import TaskCard from "@/components/module/tasks/TaskCard";
 import { selectTasks } from "@/redux/features/task/taskSlice";
 import { useAppSelector } from "@/redux/hooks";
 import { Fragment } from "react/jsx-runtime";
@@ -11,7 +12,11 @@ const Tasks = () => {
   return (
     <Fragment>
       <div className="max-w-screen-xl mx-auto my-10">
-        <p>Task</p>
+        {/* action */}
+        <div className="flex items-center justify-between">
+          <p>Task</p>
+          <AddTask />
+        </div>
 
         {/* task card */}
         <div className="space-y-3 mt-5">
