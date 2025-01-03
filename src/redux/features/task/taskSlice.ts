@@ -8,26 +8,23 @@ interface IInitialState {
 }
 
 const initialState: IInitialState = {
-    tasks: [
-        {
-            id: "T-001",
-            title: "TypeScript Mastery",
-            description: "Mastery typescript",
-            priority: "High",
-            isCompleted: false,
-            dueDate: "2025-02"
-        }
-    ]
+    tasks: []
 }
 
 const taskSlice = createSlice({
     name: "task",
     initialState,
-    reducers: {},
+    reducers: {
+        addTask: (state, action) => {
+            state.tasks.push(action.payload)
+        }
+    },
 })
 
 export const selectTasks = (state: RootState) => {
     return state.todo.tasks;
 }
+
+export const { addTask } = taskSlice.actions;
 
 export default taskSlice.reducer;
